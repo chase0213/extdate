@@ -1,0 +1,25 @@
+{
+  "name": "extdate",
+  "version": "0.1.0",
+  "description": "extension of javascript's Date object",
+  "homepage": "https://github.com/chase0213/extdate",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:chase0213/extdate.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "files": [
+    "lib"
+  ],
+  "keywords": [
+    "date",
+    "time",
+    "simple",
+    "lite"
+  ],
+  "author": "Chisato Hasegawa",
+  "license": "MIT"
+}
