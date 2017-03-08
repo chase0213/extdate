@@ -3,23 +3,36 @@
   "version": "0.1.0",
   "description": "extension of javascript's Date object",
   "homepage": "https://github.com/chase0213/extdate",
-  "main": "index.js",
+  "main": "./index.js",
   "repository": {
     "type": "git",
     "url": "git@github.com:chase0213/extdate.git"
   },
+  "dependencies": {},
+  "devDependencies": {
+    "mocha": "^3.2.0",
+    "typescript": "^2.2.1"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "files": [
     "lib"
   ],
   "keywords": [
-    "date",
-    "time",
-    "simple",
-    "lite"
+    "Date",
+    "Time",
+    "Simple",
+    "Lite",
+    "ES6"
   ],
-  "author": "Chisato Hasegawa",
-  "license": "MIT"
+  "author": "Chisato Hasegawa <chase0213+dev@gmail.com>",
+  "contributors": [
+    {
+      "name": "Chisato Hasegawa",
+      "email": "chase0213+dev@gmail.com"
+    }
+  ],
+  "license": "MIT",
+  "typings": "./lib/ExtDate.d.ts"
 }

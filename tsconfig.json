@@ -1,6 +1,8 @@
 {
   "compilerOptions": {
-    "module": "es6",
+    "module": "commonjs",
+    "target": "es6",
+    "declaration": true,
     "noImplicitAny": false,
     "removeComments": true,
     "preserveConstEnums": true,
@@ -13,6 +15,10 @@
   "exclude": [
     "node_modules",
     "**/*.spec.ts"
-  ]
+  ],
+  "formatCodeOptions": {
+    "indentSize": 2,
+    "tabSize": 2
+  }
 }
 

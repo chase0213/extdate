@@ -1,4 +1,2 @@
-'use strict';
-
-var ExtDate = require('./lib/extdate.js');
-module.exports = ExtDate;
+module.exports = require('./lib/ExtDate');
+module.exports = require('./lib/ExtInterval');
