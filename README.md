@@ -13,7 +13,7 @@ npm install extdate
 To import the ExtDate functionality:
 
 ```typescript
-import { ExtDate } from 'extdate'
+import { ExtDate } from 'extdate/lib/ExtDate'
 
 // create ExtDate instance from year, month and day
 let date: ExtDate = new ExtDate(2017, 3, 8);
