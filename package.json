@@ -1,6 +1,6 @@
 {
   "name": "extdate",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "extension of javascript's Date object",
   "homepage": "https://github.com/chase0213/extdate",
   "main": "./index.js",
@@ -17,7 +17,6 @@
     "test": "mocha"
   },
   "files": [
-    "lib"
   ],
   "keywords": [
     "Date",
