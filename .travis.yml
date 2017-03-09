@@ -7,13 +7,13 @@ cache:
 
 before_install:
   - nvm install 7.5.0
-  - npm install -g npm@4 typescript@2.2.1 codecov && node -v && npm -v
+  - npm install -g npm@4 typescript@2.2.1 istanbul codecov && node -v && npm -v
 
 install:
   - npm install
 
 script:
-  - tsc && npm test
+  - npm build && npm test && npm coverage
 
 after_success:
   - codecov

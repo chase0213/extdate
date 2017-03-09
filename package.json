@@ -14,10 +14,11 @@
     "typescript": "^2.2.1"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "build": "tsc",
+    "coverage": "istanbul cover _mocha -- -R spec"
   },
-  "files": [
-  ],
+  "files": [],
   "keywords": [
     "Date",
     "Time",
