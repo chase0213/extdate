@@ -7,8 +7,7 @@ cache:
 
 before_install:
   - nvm install 7.5.0
-  - npm install -g npm@4 typescript@2.2.1 && node -v && npm -v
-  - pip install codecov
+  - npm install -g npm@4 typescript@2.2.1 codecov && node -v && npm -v
 
 install:
   - npm install
