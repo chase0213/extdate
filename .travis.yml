@@ -13,7 +13,7 @@ install:
   - npm install
 
 script:
-  - npm build && npm test && npm coverage
+  - npm run build && npm run test && npm run coverage
 
 after_success:
   - codecov
