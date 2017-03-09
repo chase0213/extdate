@@ -1,3 +1,5 @@
+[![npm version](https://badge.fury.io/js/extdate.svg)](https://badge.fury.io/js/extdate)
+
 [![Build Status](https://travis-ci.org/chase0213/extdate.svg?branch=master)](https://travis-ci.org/chase0213/extdate)
 
 # ExtDate
