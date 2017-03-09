@@ -10,13 +10,18 @@
   },
   "dependencies": {},
   "devDependencies": {
+    "codecov": "^1.0.1",
+    "istanbul": "^0.4.5",
     "mocha": "^3.2.0",
+    "remap-istanbul": "^0.9.1",
     "typescript": "^2.2.1"
   },
   "scripts": {
     "test": "mocha",
     "build": "tsc",
-    "coverage": "istanbul cover _mocha -- -R spec"
+    "reportCoverage": "codecov -f coverage/coverage-remap.json",
+    "coverage": "istanbul cover _mocha --report lcovonly -- -R spec",
+    "postcoverage": "cat coverage/coverage.json | ./node_modules/.bin/remap-istanbul > coverage/coverage-remap.json && npm run reportCoverage"
   },
   "files": [],
   "keywords": [
