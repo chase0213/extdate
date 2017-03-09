@@ -6,7 +6,7 @@
     "noImplicitAny": false,
     "removeComments": true,
     "preserveConstEnums": true,
-    "outDir": "./",
+    "outDir": "./lib",
     "sourceMap": true
   },
   "include": [
