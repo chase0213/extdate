@@ -36,7 +36,7 @@ Available instance methods are as follows:
 #### Getter/Setter
 
 | method name | args => return value | description | active issue (if exists) |
-| :--- | :---: | :---: | :---: |
+| :--- | :--- | :--- | :---: |
 | unixTime | () => number | returns unixtime | |
 | miliSecond | () => number | returns the value at 'mili-second' digit | |
 | second | () => number | returns the value at 'second' digit | |
@@ -52,7 +52,7 @@ Available instance methods are as follows:
 #### Date Calculations
 
 | method name | args => return value | description | active issue (if exists) |
-| :--- | :---: | :---: | :---: |
+| :--- | :--- | :--- | :---: |
 | nextDay | (step?: number) => ExtDate | returns ExtDate object of `step`-day after (step is 1 if nothing given) | |
 | nextWeek | (step?: number) => ExtDate | returns ExtDate object of `step`-week after (step is 1 if nothing given) | |
 | nextMonth | (step?: number) => ExtDate | returns ExtDate object of `step`-month after (step is 1 if nothing given) | |
@@ -73,7 +73,7 @@ Available instance methods are as follows:
 #### Boolean Methods
 
 | method name | args => return value | description | active issue (if exists) |
-| :--- | :---: | :---: | :---: |
+| :--- | :--- | :--- | :---: |
 | isSameDay | (date: ExtDate) => boolean | returns whether given 2 days are same or not | |
 | isSameWeek | (date: ExtDate) => boolean | returns whether given 2 days are in a same week or not | |
 | isSameMonth | (date: ExtDate) => boolean | returns whether given 2 days are in a same month or not | |
@@ -82,7 +82,7 @@ Available instance methods are as follows:
 #### Formatter
 
 | method name | args => return value | description | active issue (if exists) |
-| :--- | :---: | :---: | :---: |
+| :--- | :--- | :--- | :---: |
 | strftime | (formatString: string, lang?: string) => string | returns arbitary format of time, lang is used only when day of week (including in short) is embedded | |
 
 
