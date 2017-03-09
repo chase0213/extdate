@@ -23,7 +23,9 @@
     "coverage": "istanbul cover _mocha --report lcovonly -- -R spec",
     "postcoverage": "cat coverage/coverage.json | ./node_modules/.bin/remap-istanbul > coverage/coverage-remap.json && npm run reportCoverage"
   },
-  "files": [],
+  "files": [
+    "lib"
+  ],
   "keywords": [
     "Date",
     "Time",
