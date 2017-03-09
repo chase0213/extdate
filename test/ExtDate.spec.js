@@ -745,4 +745,115 @@ describe('ExtDate', function() {
     });
   });
 
+  describe('#isSameDay(date: ExtDate): boolean', function() {
+    it('should return true if given 2 days are same day', function() {
+      var dateA = new ExtDate(2017, 3, 8, 12, 34, 56, 789);
+      var dateB = new ExtDate(2017, 3, 8, 1, 23, 45, 0);
+      assert.equal(dateA.isSameDay(dateB), true);
+      assert.equal(dateB.isSameDay(dateA), true);
+    });
+
+    it('should return false if given 2 days are different', function() {
+      var dateA = new ExtDate(2017, 3, 8, 12, 34, 56, 789);
+      var dateB = new ExtDate(2017, 3, 9, 12, 34, 56, 789);
+      assert.equal(dateA.isSameDay(dateB), false);
+      assert.equal(dateB.isSameDay(dateA), false);
+    });
+
+    it('should return false if given 2 days have same dates but months or years differ', function() {
+      var dateA = new ExtDate(2017, 3, 8, 12, 34, 56, 789);
+      var dateB = new ExtDate(2020, 3, 8, 12, 34, 56, 789);
+      var dateC = new ExtDate(2017, 6, 8, 12, 34, 56, 789);
+      assert.equal(dateA.isSameDay(dateB), false);
+      assert.equal(dateB.isSameDay(dateA), false);
+      assert.equal(dateA.isSameDay(dateC), false);
+      assert.equal(dateC.isSameDay(dateA), false);
+    });
+  });
+
+  describe('#isSameWeek(date: ExtDate): boolean', function() {
+    it('should return true if given 2 days are in same week', function() {
+      var dateA = new ExtDate(2017, 3, 8, 12, 34, 56, 789);
+      var dateB = new ExtDate(2017, 3, 8, 1, 3, 5, 789);
+      var dateC = new ExtDate(2017, 3, 5);
+      var dateD = new ExtDate(2017, 3, 11);
+      assert.equal(dateA.isSameWeek(dateB), true);
+      assert.equal(dateB.isSameWeek(dateA), true);
+      assert.equal(dateA.isSameWeek(dateC), true);
+      assert.equal(dateC.isSameWeek(dateA), true);
+      assert.equal(dateA.isSameWeek(dateD), true);
+      assert.equal(dateD.isSameWeek(dateA), true);
+    });
+
+    it('should return false if given 2 days are not in same week', function() {
+      var dateA = new ExtDate(2017, 3, 8, 12, 34, 56, 789);
+      var dateB = new ExtDate(2017, 3, 4);
+      var dateC = new ExtDate(2017, 3, 12);
+      var dateD = new ExtDate(2020, 3, 8);
+      assert.equal(dateA.isSameWeek(dateB), false);
+      assert.equal(dateB.isSameWeek(dateA), false);
+      assert.equal(dateA.isSameWeek(dateC), false);
+      assert.equal(dateC.isSameWeek(dateA), false);
+      assert.equal(dateA.isSameWeek(dateD), false);
+      assert.equal(dateD.isSameWeek(dateA), false);
+    });
+
+  });
+
+  describe('#isSameMonth(date: ExtDate): boolean', function() {
+    it('should return true if given 2 days are in same month', function() {
+      var dateA = new ExtDate(2017, 3, 8, 12, 34, 56, 789);
+      var dateB = new ExtDate(2017, 3, 8, 1, 3, 5, 789);
+      var dateC = new ExtDate(2017, 3, 1);
+      var dateD = new ExtDate(2017, 3, 31);
+      assert.equal(dateA.isSameMonth(dateB), true);
+      assert.equal(dateB.isSameMonth(dateA), true);
+      assert.equal(dateA.isSameMonth(dateC), true);
+      assert.equal(dateC.isSameMonth(dateA), true);
+      assert.equal(dateA.isSameMonth(dateD), true);
+      assert.equal(dateD.isSameMonth(dateA), true);
+    });
+
+    it('should return false if given 2 days are not in same month', function() {
+      var dateA = new ExtDate(2017, 3, 8, 12, 34, 56, 789);
+      var dateB = new ExtDate(2017, 2, 28);
+      var dateC = new ExtDate(2017, 4, 1);
+      var dateD = new ExtDate(2020, 3, 8);
+      assert.equal(dateA.isSameMonth(dateB), false);
+      assert.equal(dateB.isSameMonth(dateA), false);
+      assert.equal(dateA.isSameMonth(dateC), false);
+      assert.equal(dateC.isSameMonth(dateA), false);
+      assert.equal(dateA.isSameMonth(dateD), false);
+      assert.equal(dateD.isSameMonth(dateA), false);
+    });
+  });
+
+  describe('#isSameYear(date: ExtDate): boolean', function() {
+    it('should return true if given 2 days are in same year', function() {
+      var dateA = new ExtDate(2017, 3, 8, 12, 34, 56, 789);
+      var dateB = new ExtDate(2017, 1, 1, 1, 3, 5, 789);
+      var dateC = new ExtDate(2017, 12, 31);
+      var dateD = new ExtDate(2017, 3, 8);
+      assert.equal(dateA.isSameYear(dateB), true);
+      assert.equal(dateB.isSameYear(dateA), true);
+      assert.equal(dateA.isSameYear(dateC), true);
+      assert.equal(dateC.isSameYear(dateA), true);
+      assert.equal(dateA.isSameYear(dateD), true);
+      assert.equal(dateD.isSameYear(dateA), true);
+    });
+
+    it('should return false if given 2 days are not in same year', function() {
+      var dateA = new ExtDate(2017, 3, 8, 12, 34, 56, 789);
+      var dateB = new ExtDate(2018, 2, 28);
+      var dateC = new ExtDate(2016, 4, 1);
+      var dateD = new ExtDate(2020, 3, 8);
+      assert.equal(dateA.isSameYear(dateB), false);
+      assert.equal(dateB.isSameYear(dateA), false);
+      assert.equal(dateA.isSameYear(dateC), false);
+      assert.equal(dateC.isSameYear(dateA), false);
+      assert.equal(dateA.isSameYear(dateD), false);
+      assert.equal(dateD.isSameYear(dateA), false);
+    });
+  });
+
 });

@@ -248,6 +248,38 @@ export class ExtDate {
   }
 
   //
+  // Boolean methods
+  //
+
+  isSameDay(date: ExtDate): boolean {
+    return (
+      this.year() === date.year() &&
+      this.month() === date.month() &&
+      this.day() === date.day()
+    );
+  }
+
+  isSameWeek(date: ExtDate): boolean {
+    const beginningUnixTime = this.beginningOfWeek().unixTime();
+    const endUnixTime = this.endOfWeek().unixTime();
+    return (
+      beginningUnixTime <= date.unixTime() &&
+      endUnixTime >= date.unixTime()
+    );
+  }
+
+  isSameMonth(date: ExtDate): boolean {
+    return (
+      this.year() === date.year() &&
+      this.month() === date.month()
+    );
+  }
+
+  isSameYear(date: ExtDate): boolean {
+    return this.year() === date.year();
+  }
+
+  //
   // Formatter
   //
 
