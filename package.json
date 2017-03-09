@@ -18,7 +18,9 @@
     "build": "tsc",
     "coverage": "istanbul cover _mocha -- -R spec"
   },
-  "files": [],
+  "files": [
+    "lib"
+  ],
   "keywords": [
     "Date",
     "Time",
