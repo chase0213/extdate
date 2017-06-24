@@ -1,5 +1,5 @@
 var assert = require('assert');
-var ExtDate = require('../lib/ExtDate').ExtDate;
+var ExtDate = require('../ExtDate').ExtDate;
 
 describe('ExtDate', function() {
 

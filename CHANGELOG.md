@@ -1,3 +1,10 @@
+# 0.3.0 (2017-06-25)
+
+### Breaking Changes
+
+- importing: make import statement be `import { ExtDate, ExtInterval } from 'extdate'` instead of `import { ExtDate } from 'extdate/lib/ExtDate'`
+
+
 # 0.2.1 (2017-03-09)
 
 ### Bug Fixes

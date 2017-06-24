@@ -60,4 +60,6 @@ internal/
 yarn.lock
 
 # Ignore output files
-lib/**/*
+/*.d.ts
+/*.js
+/*.js.map

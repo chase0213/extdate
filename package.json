@@ -1,6 +1,6 @@
 {
   "name": "extdate",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "extension of javascript's Date object",
   "homepage": "https://github.com/chase0213/extdate",
   "main": "./index.js",
