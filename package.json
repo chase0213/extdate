@@ -1,6 +1,6 @@
 {
   "name": "extdate",
-  "version": "0.3.0",
+  "version": "0.3.3",
   "description": "extension of javascript's Date object",
   "homepage": "https://github.com/chase0213/extdate",
   "main": "./index.js",
@@ -23,9 +23,6 @@
     "coverage": "istanbul cover _mocha --report lcovonly -- -R spec",
     "postcoverage": "cat coverage/coverage.json | ./node_modules/.bin/remap-istanbul > coverage/coverage-remap.json && npm run reportCoverage"
   },
-  "files": [
-    "lib"
-  ],
   "keywords": [
     "Date",
     "Time",
