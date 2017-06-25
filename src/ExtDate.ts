@@ -99,6 +99,30 @@ export class ExtDate {
   // Date calculations
   //
 
+  nextSecond(step: number = 1): ExtDate {
+    let dateArray = this.toArray();
+    dateArray[this.INDEX_SECOND] += step;
+
+    let date = new ExtDate(...dateArray);
+    return date;
+  }
+
+  nextMinute(step: number = 1): ExtDate {
+    let dateArray = this.toArray();
+    dateArray[this.INDEX_MINUTE] += step;
+
+    let date = new ExtDate(...dateArray);
+    return date;
+  }
+
+  nextHour(step: number = 1): ExtDate {
+    let dateArray = this.toArray();
+    dateArray[this.INDEX_HOUR] += step;
+
+    let date = new ExtDate(...dateArray);
+    return date;
+  }
+
   nextDay(step: number = 1): ExtDate {
     let dateAsArray = this.toArray();
     dateAsArray[this.INDEX_DAY] += step;
@@ -126,6 +150,30 @@ export class ExtDate {
   nextYear(step: number = 1): ExtDate {
     let dateAsArray = this.toArray();
     dateAsArray[this.INDEX_YEAR] += step;
+
+    let date = new ExtDate(...dateAsArray);
+    return date;
+  }
+
+  prevSecond(step: number = 1): ExtDate {
+    let dateAsArray = this.toArray();
+    dateAsArray[this.INDEX_SECOND] -= step;
+
+    let date = new ExtDate(...dateAsArray);
+    return date;
+  }
+
+  prevMinute(step: number = 1): ExtDate {
+    let dateAsArray = this.toArray();
+    dateAsArray[this.INDEX_MINUTE] -= step;
+
+    let date = new ExtDate(...dateAsArray);
+    return date;
+  }
+
+  prevHour(step: number = 1): ExtDate {
+    let dateAsArray = this.toArray();
+    dateAsArray[this.INDEX_HOUR] -= step;
 
     let date = new ExtDate(...dateAsArray);
     return date;

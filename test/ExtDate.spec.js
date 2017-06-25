@@ -175,6 +175,243 @@ describe('ExtDate', function() {
     });
   });
 
+  describe('#nextSecond(): ExtDate', function() {
+    it('should return the next second', function() {
+      var now = new ExtDate(2017, 3, 8, 12, 0, 0);
+      var nextSecond = now.nextSecond();
+      assert.equal(nextSecond.year(), 2017);
+      assert.equal(nextSecond.month(), 3);
+      assert.equal(nextSecond.day(), 8);
+      assert.equal(nextSecond.hour(), 12);
+      assert.equal(nextSecond.minute(), 0);
+      assert.equal(nextSecond.second(), 1);
+    });
+
+    it('should return the next hour even if minute changes', function() {
+      var now = new ExtDate(2017, 3, 8, 12, 0, 59);
+      var nextSecond = now.nextSecond();
+      assert.equal(nextSecond.year(), 2017);
+      assert.equal(nextSecond.month(), 3);
+      assert.equal(nextSecond.day(), 8);
+      assert.equal(nextSecond.hour(), 12);
+      assert.equal(nextSecond.minute(), 1);
+      assert.equal(nextSecond.second(), 0);
+    });
+
+    it('should return the next hour even if hour changes', function() {
+      var now = new ExtDate(2017, 3, 8, 12, 59, 59);
+      var nextSecond = now.nextSecond();
+      assert.equal(nextSecond.year(), 2017);
+      assert.equal(nextSecond.month(), 3);
+      assert.equal(nextSecond.day(), 8);
+      assert.equal(nextSecond.hour(), 13);
+      assert.equal(nextSecond.minute(), 0);
+      assert.equal(nextSecond.second(), 0);
+    });
+
+    it('should return the next hour even if day changes', function() {
+      var now = new ExtDate(2017, 3, 8, 23, 59, 59);
+      var nextSecond = now.nextSecond();
+      assert.equal(nextSecond.year(), 2017);
+      assert.equal(nextSecond.month(), 3);
+      assert.equal(nextSecond.day(), 9);
+      assert.equal(nextSecond.hour(), 0);
+      assert.equal(nextSecond.minute(), 0);
+      assert.equal(nextSecond.second(), 0);
+    });
+
+    it('should return the next hour even if month changes', function() {
+      var now = new ExtDate(2017, 3, 31, 23, 59, 59);
+      var nextSecond = now.nextSecond();
+      assert.equal(nextSecond.year(), 2017);
+      assert.equal(nextSecond.month(), 4);
+      assert.equal(nextSecond.day(), 1);
+      assert.equal(nextSecond.hour(), 0);
+      assert.equal(nextSecond.minute(), 0);
+      assert.equal(nextSecond.second(), 0);
+    });
+
+    it('should return the next hour even if year changes', function() {
+      var now = new ExtDate(2017, 12, 31, 23, 59, 59);
+      var nextSecond = now.nextSecond();
+      assert.equal(nextSecond.year(), 2018);
+      assert.equal(nextSecond.month(), 1);
+      assert.equal(nextSecond.day(), 1);
+      assert.equal(nextSecond.hour(), 0);
+      assert.equal(nextSecond.minute(), 0);
+      assert.equal(nextSecond.second(), 0);
+    });
+
+    it('should increase the number of given hours', function() {
+      var now = new ExtDate(2017, 3, 8, 10, 0, 0);
+      var nextSecond = now.nextSecond(3);
+      assert.equal(nextSecond.year(), 2017);
+      assert.equal(nextSecond.month(), 3);
+      assert.equal(nextSecond.day(), 8);
+      assert.equal(nextSecond.hour(), 10);
+      assert.equal(nextSecond.minute(), 0);
+      assert.equal(nextSecond.second(), 3);
+    });
+
+    it('should decrease the number of given hours', function() {
+      var now = new ExtDate(2017, 3, 8, 10, 0, 10);
+      var nextSecond = now.nextSecond(-3);
+      assert.equal(nextSecond.year(), 2017);
+      assert.equal(nextSecond.month(), 3);
+      assert.equal(nextSecond.day(), 8);
+      assert.equal(nextSecond.hour(), 10);
+      assert.equal(nextSecond.minute(), 0);
+      assert.equal(nextSecond.second(), 7);
+    });
+  });
+
+  describe('#nextMinute(): ExtDate', function() {
+    it('should return the next minute', function() {
+      var now = new ExtDate(2017, 3, 8, 12, 0, 0);
+      var nextMinute = now.nextMinute();
+      assert.equal(nextMinute.year(), 2017);
+      assert.equal(nextMinute.month(), 3);
+      assert.equal(nextMinute.day(), 8);
+      assert.equal(nextMinute.hour(), 12);
+      assert.equal(nextMinute.minute(), 1);
+      assert.equal(nextMinute.second(), 0);
+    });
+
+    it('should return the next hour even if hour changes', function() {
+      var now = new ExtDate(2017, 3, 8, 12, 59, 0);
+      var nextMinute = now.nextMinute();
+      assert.equal(nextMinute.year(), 2017);
+      assert.equal(nextMinute.month(), 3);
+      assert.equal(nextMinute.day(), 8);
+      assert.equal(nextMinute.hour(), 13);
+      assert.equal(nextMinute.minute(), 0);
+      assert.equal(nextMinute.second(), 0);
+    });
+
+    it('should return the next hour even if day changes', function() {
+      var now = new ExtDate(2017, 3, 8, 23, 59, 0);
+      var nextMinute = now.nextMinute();
+      assert.equal(nextMinute.year(), 2017);
+      assert.equal(nextMinute.month(), 3);
+      assert.equal(nextMinute.day(), 9);
+      assert.equal(nextMinute.hour(), 0);
+      assert.equal(nextMinute.minute(), 0);
+      assert.equal(nextMinute.second(), 0);
+    });
+
+    it('should return the next hour even if month changes', function() {
+      var now = new ExtDate(2017, 3, 31, 23, 59, 0);
+      var nextMinute = now.nextMinute();
+      assert.equal(nextMinute.year(), 2017);
+      assert.equal(nextMinute.month(), 4);
+      assert.equal(nextMinute.day(), 1);
+      assert.equal(nextMinute.hour(), 0);
+      assert.equal(nextMinute.minute(), 0);
+      assert.equal(nextMinute.second(), 0);
+    });
+
+    it('should return the next hour even if year changes', function() {
+      var now = new ExtDate(2017, 12, 31, 23, 59, 0);
+      var nextMinute = now.nextMinute();
+      assert.equal(nextMinute.year(), 2018);
+      assert.equal(nextMinute.month(), 1);
+      assert.equal(nextMinute.day(), 1);
+      assert.equal(nextMinute.hour(), 0);
+      assert.equal(nextMinute.minute(), 0);
+      assert.equal(nextMinute.second(), 0);
+    });
+
+    it('should increase the number of given hours', function() {
+      var now = new ExtDate(2017, 3, 8, 10, 0, 0);
+      var nextMinute = now.nextMinute(3);
+      assert.equal(nextMinute.year(), 2017);
+      assert.equal(nextMinute.month(), 3);
+      assert.equal(nextMinute.day(), 8);
+      assert.equal(nextMinute.hour(), 10);
+      assert.equal(nextMinute.minute(), 3);
+      assert.equal(nextMinute.second(), 0);
+    });
+
+    it('should decrease the number of given hours', function() {
+      var now = new ExtDate(2017, 3, 8, 10, 10, 0);
+      var nextMinute = now.nextMinute(-3);
+      assert.equal(nextMinute.year(), 2017);
+      assert.equal(nextMinute.month(), 3);
+      assert.equal(nextMinute.day(), 8);
+      assert.equal(nextMinute.hour(), 10);
+      assert.equal(nextMinute.minute(), 7);
+      assert.equal(nextMinute.second(), 0);
+    });
+  });
+
+  describe('#nextHour(): ExtDate', function() {
+    it('should return the next hour', function() {
+      var now = new ExtDate(2017, 3, 8, 12, 0, 0);
+      var nextHour = now.nextHour();
+      assert.equal(nextHour.year(), 2017);
+      assert.equal(nextHour.month(), 3);
+      assert.equal(nextHour.day(), 8);
+      assert.equal(nextHour.hour(), 13);
+      assert.equal(nextHour.minute(), 0);
+      assert.equal(nextHour.second(), 0);
+    });
+
+    it('should return the next hour even if day changes', function() {
+      var now = new ExtDate(2017, 3, 8, 23, 30, 0);
+      var nextHour = now.nextHour();
+      assert.equal(nextHour.year(), 2017);
+      assert.equal(nextHour.month(), 3);
+      assert.equal(nextHour.day(), 9);
+      assert.equal(nextHour.hour(), 0);
+      assert.equal(nextHour.minute(), 30);
+      assert.equal(nextHour.second(), 0);
+    });
+
+    it('should return the next hour even if month changes', function() {
+      var now = new ExtDate(2017, 3, 31, 23, 30, 0);
+      var nextHour = now.nextHour();
+      assert.equal(nextHour.year(), 2017);
+      assert.equal(nextHour.month(), 4);
+      assert.equal(nextHour.day(), 1);
+      assert.equal(nextHour.hour(), 0);
+      assert.equal(nextHour.minute(), 30);
+      assert.equal(nextHour.second(), 0);
+    });
+
+    it('should return the next hour even if year changes', function() {
+      var now = new ExtDate(2017, 12, 31, 23, 30, 0);
+      var nextHour = now.nextHour();
+      assert.equal(nextHour.year(), 2018);
+      assert.equal(nextHour.month(), 1);
+      assert.equal(nextHour.day(), 1);
+      assert.equal(nextHour.hour(), 0);
+      assert.equal(nextHour.minute(), 30);
+      assert.equal(nextHour.second(), 0);
+    });
+
+    it('should increase the number of given hours', function() {
+      var now = new ExtDate(2017, 3, 8, 10, 0, 0);
+      var nextHour = now.nextHour(3);
+      assert.equal(nextHour.year(), 2017);
+      assert.equal(nextHour.month(), 3);
+      assert.equal(nextHour.day(), 8);
+      assert.equal(nextHour.hour(), 13);
+      assert.equal(nextHour.minute(), 0);
+      assert.equal(nextHour.second(), 0);
+    });
+
+    it('should decrease the number of given hours', function() {
+      var now = new ExtDate(2017, 3, 8, 10, 0, 0);
+      var nextHour = now.nextHour(-3);
+      assert.equal(nextHour.year(), 2017);
+      assert.equal(nextHour.month(), 3);
+      assert.equal(nextHour.day(), 8);
+      assert.equal(nextHour.hour(), 7);
+      assert.equal(nextHour.minute(), 0);
+      assert.equal(nextHour.second(), 0);
+    });
+  });
+
   describe('#nextDay(): ExtDate', function() {
     it('should return the next day of ordinary day', function() {
       var today = new ExtDate(2017, 3, 8);
@@ -324,6 +561,244 @@ describe('ExtDate', function() {
       assert.equal(nextDay.year(), 2014);
       assert.equal(nextDay.month(), 3);
       assert.equal(nextDay.day(), 8);
+    });
+  });
+
+
+  describe('#prevSecond(): ExtDate', function() {
+    it('should return the previous second', function() {
+      var now = new ExtDate(2017, 3, 8, 12, 34, 56);
+      var prevSecond = now.prevSecond();
+      assert.equal(prevSecond.year(), 2017);
+      assert.equal(prevSecond.month(), 3);
+      assert.equal(prevSecond.day(), 8);
+      assert.equal(prevSecond.hour(), 12);
+      assert.equal(prevSecond.minute(), 34);
+      assert.equal(prevSecond.second(), 55);
+    });
+
+    it('should return the previous second even if minute changes', function() {
+      var now = new ExtDate(2017, 3, 8, 12, 0, 0);
+      var prevSecond = now.prevSecond();
+      assert.equal(prevSecond.year(), 2017);
+      assert.equal(prevSecond.month(), 3);
+      assert.equal(prevSecond.day(), 8);
+      assert.equal(prevSecond.hour(), 11);
+      assert.equal(prevSecond.minute(), 59);
+      assert.equal(prevSecond.second(), 59);
+    });
+
+    it('should return the previous second even if hour changes', function() {
+      var now = new ExtDate(2017, 3, 8, 12, 0, 0);
+      var prevSecond = now.prevSecond();
+      assert.equal(prevSecond.year(), 2017);
+      assert.equal(prevSecond.month(), 3);
+      assert.equal(prevSecond.day(), 8);
+      assert.equal(prevSecond.hour(), 11);
+      assert.equal(prevSecond.minute(), 59);
+      assert.equal(prevSecond.second(), 59);
+    });
+
+    it('should return the previous second even if day changes', function() {
+      var now = new ExtDate(2017, 3, 8, 0, 0, 0);
+      var prevSecond = now.prevSecond();
+      assert.equal(prevSecond.year(), 2017);
+      assert.equal(prevSecond.month(), 3);
+      assert.equal(prevSecond.day(), 7);
+      assert.equal(prevSecond.hour(), 23);
+      assert.equal(prevSecond.minute(), 59);
+      assert.equal(prevSecond.second(), 59);
+    });
+
+    it('should return the previous second even if month changes', function() {
+      var now = new ExtDate(2017, 3, 1, 0, 0, 0);
+      var prevSecond = now.prevSecond();
+      assert.equal(prevSecond.year(), 2017);
+      assert.equal(prevSecond.month(), 2);
+      assert.equal(prevSecond.day(), 28);
+      assert.equal(prevSecond.hour(), 23);
+      assert.equal(prevSecond.minute(), 59);
+      assert.equal(prevSecond.second(), 59);
+    });
+
+    it('should return the previous second even if year changes', function() {
+      var now = new ExtDate(2017, 1, 1, 0, 0, 0);
+      var prevSecond = now.prevSecond();
+      assert.equal(prevSecond.year(), 2016);
+      assert.equal(prevSecond.month(), 12);
+      assert.equal(prevSecond.day(), 31);
+      assert.equal(prevSecond.hour(), 23);
+      assert.equal(prevSecond.minute(), 59);
+      assert.equal(prevSecond.second(), 59);
+    });
+
+    it('should decrease the number of given seconds', function() {
+      var now = new ExtDate(2017, 3, 8, 12, 34, 56);
+      var prevSecond = now.prevSecond(3);
+      assert.equal(prevSecond.year(), 2017);
+      assert.equal(prevSecond.month(), 3);
+      assert.equal(prevSecond.day(), 8);
+      assert.equal(prevSecond.hour(), 12);
+      assert.equal(prevSecond.minute(), 34);
+      assert.equal(prevSecond.second(), 53);
+    });
+
+    it('should increase the number of given seconds', function() {
+      var now = new ExtDate(2017, 3, 8, 12, 34, 56);
+      var prevSecond = now.prevSecond(-3);
+      assert.equal(prevSecond.year(), 2017);
+      assert.equal(prevSecond.month(), 3);
+      assert.equal(prevSecond.day(), 8);
+      assert.equal(prevSecond.hour(), 12);
+      assert.equal(prevSecond.minute(), 34);
+      assert.equal(prevSecond.second(), 59);
+    });
+  });
+
+  describe('#prevMinute(): ExtDate', function() {
+    it('should return the previous minute', function() {
+      var now = new ExtDate(2017, 3, 8, 12, 34, 56);
+      var prevMinute = now.prevMinute();
+      assert.equal(prevMinute.year(), 2017);
+      assert.equal(prevMinute.month(), 3);
+      assert.equal(prevMinute.day(), 8);
+      assert.equal(prevMinute.hour(), 12);
+      assert.equal(prevMinute.minute(), 33);
+      assert.equal(prevMinute.second(), 56);
+    });
+
+    it('should return the previous minute even if hour changes', function() {
+      var now = new ExtDate(2017, 3, 8, 12, 0, 56);
+      var prevMinute = now.prevMinute();
+      assert.equal(prevMinute.year(), 2017);
+      assert.equal(prevMinute.month(), 3);
+      assert.equal(prevMinute.day(), 8);
+      assert.equal(prevMinute.hour(), 11);
+      assert.equal(prevMinute.minute(), 59);
+      assert.equal(prevMinute.second(), 56);
+    });
+
+    it('should return the previous minute even if day changes', function() {
+      var now = new ExtDate(2017, 3, 8, 0, 0, 56);
+      var prevMinute = now.prevMinute();
+      assert.equal(prevMinute.year(), 2017);
+      assert.equal(prevMinute.month(), 3);
+      assert.equal(prevMinute.day(), 7);
+      assert.equal(prevMinute.hour(), 23);
+      assert.equal(prevMinute.minute(), 59);
+      assert.equal(prevMinute.second(), 56);
+    });
+
+    it('should return the previous minute even if month changes', function() {
+      var now = new ExtDate(2017, 3, 1, 0, 0, 56);
+      var prevMinute = now.prevMinute();
+      assert.equal(prevMinute.year(), 2017);
+      assert.equal(prevMinute.month(), 2);
+      assert.equal(prevMinute.day(), 28);
+      assert.equal(prevMinute.hour(), 23);
+      assert.equal(prevMinute.minute(), 59);
+      assert.equal(prevMinute.second(), 56);
+    });
+
+    it('should return the previous minute even if year changes', function() {
+      var now = new ExtDate(2017, 1, 1, 0, 0, 56);
+      var prevMinute = now.prevMinute();
+      assert.equal(prevMinute.year(), 2016);
+      assert.equal(prevMinute.month(), 12);
+      assert.equal(prevMinute.day(), 31);
+      assert.equal(prevMinute.hour(), 23);
+      assert.equal(prevMinute.minute(), 59);
+      assert.equal(prevMinute.second(), 56);
+    });
+
+    it('should decrease the number of given minutes', function() {
+      var now = new ExtDate(2017, 3, 8, 12, 34, 56);
+      var prevMinute = now.prevMinute(3);
+      assert.equal(prevMinute.year(), 2017);
+      assert.equal(prevMinute.month(), 3);
+      assert.equal(prevMinute.day(), 8);
+      assert.equal(prevMinute.hour(), 12);
+      assert.equal(prevMinute.minute(), 31);
+      assert.equal(prevMinute.second(), 56);
+    });
+
+    it('should increase the number of given minutes', function() {
+      var now = new ExtDate(2017, 3, 8, 12, 34, 56);
+      var prevMinute = now.prevMinute(-3);
+      assert.equal(prevMinute.year(), 2017);
+      assert.equal(prevMinute.month(), 3);
+      assert.equal(prevMinute.day(), 8);
+      assert.equal(prevMinute.hour(), 12);
+      assert.equal(prevMinute.minute(), 37);
+      assert.equal(prevMinute.second(), 56);
+    });
+  });
+
+  describe('#prevHour(): ExtDate', function() {
+    it('should return the previous hour', function() {
+      var now = new ExtDate(2017, 3, 8, 12, 34, 56);
+      var prevHour = now.prevHour();
+      assert.equal(prevHour.year(), 2017);
+      assert.equal(prevHour.month(), 3);
+      assert.equal(prevHour.day(), 8);
+      assert.equal(prevHour.hour(), 11);
+      assert.equal(prevHour.minute(), 34);
+      assert.equal(prevHour.second(), 56);
+    });
+
+    it('should return the previous hour even if day changes', function() {
+      var now = new ExtDate(2017, 3, 8, 0, 34, 56);
+      var prevHour = now.prevHour();
+      assert.equal(prevHour.year(), 2017);
+      assert.equal(prevHour.month(), 3);
+      assert.equal(prevHour.day(), 7);
+      assert.equal(prevHour.hour(), 23);
+      assert.equal(prevHour.minute(), 34);
+      assert.equal(prevHour.second(), 56);
+    });
+
+    it('should return the previous hour even if month changes', function() {
+      var now = new ExtDate(2017, 3, 1, 0, 34, 56);
+      var prevHour = now.prevHour();
+      assert.equal(prevHour.year(), 2017);
+      assert.equal(prevHour.month(), 2);
+      assert.equal(prevHour.day(), 28);
+      assert.equal(prevHour.hour(), 23);
+      assert.equal(prevHour.minute(), 34);
+      assert.equal(prevHour.second(), 56);
+    });
+
+    it('should return the previous hour even if year changes', function() {
+      var now = new ExtDate(2017, 1, 1, 0, 34, 56);
+      var prevHour = now.prevHour();
+      assert.equal(prevHour.year(), 2016);
+      assert.equal(prevHour.month(), 12);
+      assert.equal(prevHour.day(), 31);
+      assert.equal(prevHour.hour(), 23);
+      assert.equal(prevHour.minute(), 34);
+      assert.equal(prevHour.second(), 56);
+    });
+
+    it('should decrease the number of given hours', function() {
+      var now = new ExtDate(2017, 3, 8, 12, 34, 56);
+      var prevHour = now.prevHour(3);
+      assert.equal(prevHour.year(), 2017);
+      assert.equal(prevHour.month(), 3);
+      assert.equal(prevHour.day(), 8);
+      assert.equal(prevHour.hour(), 9);
+      assert.equal(prevHour.minute(), 34);
+      assert.equal(prevHour.second(), 56);
+    });
+
+    it('should increase the number of given hours', function() {
+      var now = new ExtDate(2017, 3, 8, 12, 34, 56);
+      var prevHour = now.prevHour(-3);
+      assert.equal(prevHour.year(), 2017);
+      assert.equal(prevHour.month(), 3);
+      assert.equal(prevHour.day(), 8);
+      assert.equal(prevHour.hour(), 15);
+      assert.equal(prevHour.minute(), 34);
+      assert.equal(prevHour.second(), 56);
     });
   });
 

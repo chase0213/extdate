@@ -1,3 +1,10 @@
+# 0.3.4 (2017-06-26)
+
+### Features
+
+- add functions `nextSecond`, `nextMinute`, `nextHour`, `prevSecond`, `prevMinute` and `prevHour`.
+
+
 # 0.3.0 (2017-06-25)
 
 ### Breaking Changes
