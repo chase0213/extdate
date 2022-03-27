@@ -355,23 +355,28 @@ export class ExtDate {
       case '%A':
         return this.dayOfWeekInShort(lang);
       case '%d':
-        return '' + this.day();
+        return this._zeroPadding(this.day(), 2);
       case '%H':
-        return '' + this.hour();
+        return this._zeroPadding(this.hour(), 2);
       case '%L':
-        return '' + this.miliSecond();
+        return this._zeroPadding(this.miliSecond(), 3);
       case '%m':
-        return '' + this.month();
+        return this._zeroPadding(this.month(), 2);
       case '%M':
-        return '' + this.minute();
+        return this._zeroPadding(this.minute(), 2);
       case '%S':
-        return '' + this.second();
+        return this._zeroPadding(this.second(), 2);
       case '%Y':
-        return '' + this.year();
+        return this._zeroPadding(this.year(), 4);
       default:
         console.error("Not Implemented...\nWe need your help!\nhttps://github.com/chase0213/extdate");
         throw "Not Implemented";
     }
+  }
+
+  private _zeroPadding(value: string|number, digit: number): string {
+    let zeros: string = (new Array(digit)).fill(0).join('');
+    return (zeros + value).slice(-digit);
   }
 
 }

@@ -1,5 +1,5 @@
-var assert = require('assert');
-var ExtDate = require('../ExtDate').ExtDate;
+let assert = require('assert');
+let ExtDate = require('../ExtDate').ExtDate;
 
 describe('ExtDate', function() {
 
@@ -1211,12 +1211,12 @@ describe('ExtDate', function() {
   describe('#strftime(formatString: string, lang?: string): string', function() {
     it('should embed time with appropriate format: en', function() {
       var date = new ExtDate(2017, 3, 8, 12, 34, 56, 789);
-      assert.equal(date.strftime("%Y/%m/%d %H:%M:%S %L (%a - %A)"), "2017/3/8 12:34:56 789 (Wednesday - Wed)");
+      assert.equal(date.strftime("%Y/%m/%d %H:%M:%S %L (%a - %A)"), "2017/03/08 12:34:56 789 (Wednesday - Wed)");
     });
 
     it('should embed time with appropriate format: ja', function() {
       var date = new ExtDate(2017, 3, 8, 12, 34, 56, 789);
-      assert.equal(date.strftime("%Y/%m/%d %H:%M:%S %L (%a - %A)", 'ja'), "2017/3/8 12:34:56 789 (水曜日 - 水)");
+      assert.equal(date.strftime("%Y/%m/%d %H:%M:%S %L (%a - %A)", 'ja'), "2017/03/08 12:34:56 789 (水曜日 - 水)");
     });
   });
 
